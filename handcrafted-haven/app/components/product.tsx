@@ -1,26 +1,32 @@
+// Product.tsx
 import React from 'react';
-interface ProductProps {
-    product: {
-      id: number;
-      name: string;
-      description: string;
-      seller: string;
-      price: number;
-      imageUrl: string;
-    };
-  }
 
-  const Product: React.FC<ProductProps> = ({ product }) => {
-    return (
-      <div className="bg-[#feffea] border border-gray-300 rounded-lg p-4 m-4 max-w-sm text-center shadow-lg">
-        <img src={product.imageUrl} alt={product.name} className="w-full rounded-full mb-2 mx-auto max-w-xs" />
-        <h3 className="text-lg font-semibold mb-2">{product.name}</h3>
-        <p className="text-sm text-gray-600 mb-4">{product.description}</p>
-        <p className="text-xl font-bold text-green-500">${product.price}</p>
-        <p className="text-sm text-gray-500">Sold by: {product.seller}</p>
-      </div>
-    );
+// Define the interface outside of the component
+interface ProductProps {
+  product: {
+    id: number;
+    name: string;
+    description: string;
+    seller: string;
+    price: number;
+    imageUrl: string;
   };
-  
+}
+
+// Use the interface for typing the component props
+const Product: React.FC<ProductProps> = ({ product }) => {
+  return (
+    <div className="product-card">
+      <img src={product.imageUrl} alt={product.name} className="product-image" />
+      <div className="product-info">
+        <h3>{product.name}</h3>
+        <p>{product.description}</p>
+        <p>Seller: {product.seller}</p>
+        <p>Price: ${product.price}</p>
+      </div>
+    </div>
+  );
+};
 
 export default Product;
+

@@ -3,6 +3,7 @@ import styles from '@/app/styles/home.module.css';
 import ProductList from '@/app/components/product-list';
 import { Metadata } from 'next';
 import PageLayout from '../components/page-layout';
+import './products.css'
 
 export const metadata: Metadata = {
   title: 'Handcrafted Haven | Products',

@@ -1,6 +1,7 @@
 // Product.tsx
+import { Client } from '@vercel/postgres';
 import React from 'react';
-
+ Client
 // Define the interface outside of the component
 interface ProductProps {
   product: {

@@ -1,8 +1,11 @@
-import React from 'react';
-import Product from './product';
+'use client';
+import React, { useState } from 'react';
+import Product from './product'; // Make sure this path matches your project structure
+import { Client } from '@vercel/postgres';
 
 const ProductList = () => {
-    
+  const [searchTerm, setSearchTerm] = useState('');
+
   const products = [
     {
       id: 1,
@@ -51,8 +54,7 @@ const ProductList = () => {
       seller: "Larry Clayton",
       price: 25.00,
       imageUrl: "https://dl.dropboxusercontent.com/scl/fi/3vmh07nasz3h153dfb5ry/ceramic-mug.webp?rlkey=5aucgdna8tikm7pl5brfkeioy&dl=0"
-    },
-    {
+    },   {
       id: 7,
       name: "Textile Wall Art",
       description: "Contemporary textile wall art. A unique fabric masterpiece.",
@@ -124,14 +126,30 @@ const ProductList = () => {
       price: 55.00,
       imageUrl: "https://dl.dropboxusercontent.com/scl/fi/3blxsdmrykf6zemnxmv8n/metal-bowl.webp?rlkey=mdo2n3a9dh0uoj82gibnvdgns&dl=0"
     }
+    // Add the rest of your products here...
   ];
-  
-  
+
+  // Filter products based on search term
+  const filteredProducts = products.filter(product =>
+    product.seller.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
-    <div className="item-list flex flex-wrap justify-around">
-      {products.map(product => (
-        <Product key={product.id} product={product} />
-      ))}
+    <div>
+      <div className="search-bar">
+        <input
+          type="text"
+          placeholder="Search by artist..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          className="search-input"
+        />
+      </div>
+      <div className="item-list">
+        {filteredProducts.map(product => (
+          <Product key={product.id} product={product} />
+        ))}
+      </div>
     </div>
   );
 };

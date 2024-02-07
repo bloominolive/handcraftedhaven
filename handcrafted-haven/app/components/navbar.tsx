@@ -2,7 +2,7 @@
 import React, {useState} from 'react';
 import Link from 'next/link';
 import HandcraftedHavenLogo from './handcraftedhavenlogo';
-import LoginButton from './login-button';
+
 
     
 
@@ -20,7 +20,7 @@ export default function Navbar () {
           <Link href="/" className='text-dark hover:text-gray-700'>Home</Link>
           <Link href="/products" className='text-dark hover:text-gray-700'>Products</Link>
           <Link href="/sellers" className='text-dark hover:text-gray-700'>Sellers</Link>
-          <LoginButton />
+        
         </div>
       </div>
     </nav>

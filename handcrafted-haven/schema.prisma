@@ -1,0 +1,9 @@
+// prisma/schema.prisma
+datasource db {
+  provider = "postgresql"
+  url      = env("Ppostgres://default:Qke0dsXC2ayl@ep-round-leaf-a4kmzvq7-pooler.us-east-1.aws.neon.tech:5432/verceldb?sslmode=require")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}

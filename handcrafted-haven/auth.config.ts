@@ -20,9 +20,10 @@ export const authConfig = {
 
       return true;
     },  
-
+    // @ts-ignore
     async session({ session, token}) {
-      session.user.id = token.sub;
+      // @ts-ignore
+      session.user.id = token?.sub;
       return session;
     }
   },
